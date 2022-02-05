@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:16:57 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/01/27 11:33:22 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/05 19:08:10 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h "
+#include "philosophers.h"
 
 static int	ft_isspace(char c)
 {
@@ -20,6 +20,7 @@ static int	ft_isspace(char c)
 	else
 		return(0);
 }
+
 int     ft_atoi(const char *str)
 {
     int			i;
@@ -42,9 +43,9 @@ int     ft_atoi(const char *str)
 		nb = nb * 10 + (str[i] - 48);
 		i++;
 	}
-	if (nb > INT_MAX && sign == 1)
+	if (nb > INT_MAX && neg == 1)
 		return (-1);
-	if (nb > (long long)INT_MAX + 1 && sign == -1)
+	if (nb > (long long)INT_MAX + 1 && neg == -1)
 		return (0);
 	return (nb * neg);
 }
@@ -57,4 +58,21 @@ void    ft_putstr_fd(char *str, int fd)
     if (!str)
         while(str[i])
             write(fd, &str[i++], 1);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, long n)
+{
+	unsigned char	*str1;
+	unsigned char	*str2;
+
+	if (n == 0)
+		return (0);
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (*str1 && *str2 && --n && *(str1) == *(str2))
+	{
+		str1++;
+		str2++;
+	}
+	return (*(str1) - *(str2));
 }
