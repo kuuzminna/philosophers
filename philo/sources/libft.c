@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:16:57 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/05 19:08:10 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:24:25 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void    ft_putstr_fd(char *str, int fd)
             write(fd, &str[i++], 1);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, long n)
+int		ft_strncmp(const char *s1, const char *s2, long n)
 {
 	unsigned char	*str1;
 	unsigned char	*str2;

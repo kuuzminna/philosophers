@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:59:42 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/05 19:41:09 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:09:42 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	init(int argc,char **argv,t_data *data);
 // libft.c
 int     ft_atoi(const char *str);
 void    ft_putstr_fd(char *str, int fd);
-int	ft_strncmp(const char *s1, const char *s2, long n);
+int		ft_strncmp(const char *s1, const char *s2, long n);
 
 //main.c
 void	write_error(char *str);

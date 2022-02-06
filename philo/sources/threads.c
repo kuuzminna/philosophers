@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 14:31:27 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/05 19:41:09 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/05 19:52:03 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int death_check(t_philo *philosophers, int i)
 	return (0);
 }
 
-static void *monitor(void *philosophers)
+static void *monitoring(void *philosophers)
 {
 	t_philo *philos;
 	int i;
@@ -79,7 +79,7 @@ static void *monitor(void *philosophers)
 void run_threads(t_data *data)
 {
 	pthread_t *threads;
-	pthread_t monik;
+	pthread_t monitor;
 	int philos_nbr;
 	int i;
 
@@ -91,7 +91,7 @@ void run_threads(t_data *data)
 	while (++i < philos_nbr)
 		pthread_create(&threads[i], NULL, life_cycle,
 					   (void *)&data->philosophers[i]);
-	pthread_create(&monik, NULL, monitor, (void *)data->philosophers);
-	pthread_join(monik, NULL);
+	pthread_create(&monitor, NULL, monitoring, (void *)data->philosophers);
+	pthread_join(monitor, NULL);
 	data->thrd = threads;
 }
