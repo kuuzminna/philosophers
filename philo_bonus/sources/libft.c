@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:13:31 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 11:29:18 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:21:05 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_putstr_fd(char *str, int fd)
 	int	i;
 
 	i = 0;
-	if (!str)
+	if (str)
 		while (str[i])
 			write(fd, &str[i++], 1);
 }
