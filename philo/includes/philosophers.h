@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:59:42 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/06 11:09:42 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 11:48:47 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,18 @@ typedef struct s_data
 	pthread_mutex_t	mutex_of_write;
 	pthread_t		*thrd;
 
-	t_philo			*philosophers;
+	t_philo			*philos;
 }					t_data;
 
 //cleaning_and_completion.c
-void    cleaning_and_completion(t_data *data, t_philo *philosophers);
+void	cleaning_and_completion(t_data *data, t_philo *philos);
 
 // initialization.c 
-void	init(int argc,char **argv,t_data *data);
+void	init(int argc, char **argv, t_data *data);
 
 // libft.c
-int     ft_atoi(const char *str);
-void    ft_putstr_fd(char *str, int fd);
+int		ft_atoi(const char *str);
+void	ft_putstr_fd(char *str, int fd);
 int		ft_strncmp(const char *s1, const char *s2, long n);
 
 //main.c
@@ -72,9 +72,9 @@ void	write_error(char *str);
 
 //message.c
 void	message(t_philo *philo, char *action);
-void	sleep_and_think(t_philo *philosophers);
-void	take_forks(t_philo *philosophers);
-void	eat(t_philo *philosophers);
+void	sleep_and_think(t_philo *philos);
+void	take_forks(t_philo *philos);
+void	eat(t_philo *philos);
 
 //threads.c
 void	run_threads(t_data *data);
@@ -82,6 +82,6 @@ void	run_threads(t_data *data);
 //utils.c
 long	current_time(void);
 void	ft_usleep(int ms);
-int		check_meals(t_philo *philosophers);
+int		check_meals(t_philo *philos);
 
 #endif

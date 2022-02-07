@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   message.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 10:11:59 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/05 19:14:44 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 11:48:47 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,31 +21,32 @@ void	message(t_philo *philo, char *action)
 	if (ft_strncmp(action, "Every philosopher ate at least", 30))
 		printf("%d %d %s\n", timestamp, philo->id, action);
 	else
-		printf("%d %s %d %s\n", timestamp, action, philo->data->nbr_of_meals, "times");
+		printf("%d %s %d %s\n", timestamp, action,
+			philo->data->nbr_of_meals, "times");
 	pthread_mutex_unlock(&philo->data->mutex_of_write);
 }
 
-void	sleep_and_think(t_philo *philosophers)
+void	sleep_and_think(t_philo *philos)
 {
-	message(philosophers, "is sleeping");
-	ft_usleep(philosophers->data->time_to_sleep);
-	message(philosophers, "is thinking");
+	message(philos, "is sleeping");
+	ft_usleep(philos->data->time_to_sleep);
+	message(philos, "is thinking");
 }
 
-void	take_forks(t_philo *philosophers)
+void	take_forks(t_philo *philos)
 {
-    pthread_mutex_lock(philosophers->fork1);
-	message(philosophers, "has taken a fork");
-    pthread_mutex_lock(philosophers->fork2);
-    message(philosophers, "has taken a fork");
+	pthread_mutex_lock(philos->fork1);
+	message(philos, "has taken a fork");
+	pthread_mutex_lock(philos->fork2);
+	message(philos, "has taken a fork");
 }
 
-void	eat(t_philo *philosophers)
+void	eat(t_philo *philos)
 {
-	message(philosophers, "is eating");
-    philosophers->time_of_last_meal = current_time();
-	philosophers->nbr_of_meals++;
-    ft_usleep(philosophers->data->time_to_eat);
-	pthread_mutex_unlock(philosophers->fork2);
-	pthread_mutex_unlock(philosophers->fork1);
+	message(philos, "is eating");
+	philos->time_of_last_meal = current_time();
+	philos->nbr_of_meals++;
+	ft_usleep(philos->data->time_to_eat);
+	pthread_mutex_unlock(philos->fork2);
+	pthread_mutex_unlock(philos->fork1);
 }

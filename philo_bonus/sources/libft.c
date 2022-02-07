@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:13:31 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/06 11:24:21 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 11:29:18 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@ static int	ft_isspace(char c)
 {
 	if (c == '\n' || c == '\t' || c == '\v' || c == ' '
 		|| c == '\r' || c == '\f')
-		return(1);
+		return (1);
 	else
-		return(0);
+		return (0);
 }
 
-int     ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-    int			i;
+	int			i;
 	int			neg;
 	long long	nb;
 
 	i = 0;
 	nb = 0;
 	neg = 1;
-	while(ft_isspace(str[i]))
+	while (ft_isspace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -50,17 +50,17 @@ int     ft_atoi(const char *str)
 	return (nb * neg);
 }
 
-void    ft_putstr_fd(char *str, int fd)
+void	ft_putstr_fd(char *str, int fd)
 {
-    int i;
-    
-    i = 0;
-    if (!str)
-        while(str[i])
-            write(fd, &str[i++], 1);
+	int	i;
+
+	i = 0;
+	if (!str)
+		while (str[i])
+			write(fd, &str[i++], 1);
 }
 
-int	    ft_strncmp(const char *s1, const char *s2, long n)
+int	ft_strncmp(const char *s1, const char *s2, long n)
 {
 	unsigned char	*str1;
 	unsigned char	*str2;

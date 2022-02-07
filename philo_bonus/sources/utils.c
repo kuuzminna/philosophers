@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:15:23 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/06 14:05:40 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 11:30:17 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_usleep(int ms)
 		usleep(ms * 3);
 }
 
-int		check_meals(t_data *data)
+int	check_meals(t_data *data)
 {
 	if (current_time() - data->time_of_last_meal
 		> data->time_to_die)

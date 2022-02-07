@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   message.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:15:20 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/06 15:01:38 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 11:30:05 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ void	sleep_and_think(t_data *data)
 {
 	message(data, "is sleeping");
 	ft_usleep(data->time_to_sleep);
-    message(data, "is thinking");
+	message(data, "is thinking");
 }

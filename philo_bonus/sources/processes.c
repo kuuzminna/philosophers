@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   processes.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 14:00:52 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/06 15:01:32 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 11:24:41 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers_bonus.h"
 
-static void *life_cycle(t_data *data)
+static void	*life_cycle(t_data *data)
 {
 	pthread_t	monitor;
 
@@ -34,7 +34,7 @@ static void *life_cycle(t_data *data)
 	return (NULL);
 }
 
-static void *monitoring(void *datum)
+static void	*monitoring(void *datum)
 {
 	t_data	*data;
 	int		i;
@@ -57,9 +57,9 @@ static void *monitoring(void *datum)
 	return (NULL);
 }
 
-void run_processes(t_data *data)
+void	run_processes(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < data->nbr_of_philo)

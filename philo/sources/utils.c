@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 18:27:13 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/05 19:08:03 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 11:48:47 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ void	ft_usleep(int ms)
 		usleep(ms * 3);
 }
 
-int	check_meals(t_philo *philosophers)
+int	check_meals(t_philo *philos)
 {
 	int	i;
 	int	nbr_philos;
 
 	i = -1;
-	nbr_philos = philosophers[0].data->nbr_of_philo;
+	nbr_philos = philos[0].data->nbr_of_philo;
 	while (++i < nbr_philos)
 	{
-		if (philosophers[i].nbr_of_meals < philosophers[i].data->nbr_of_meals)
+		if (philos[i].nbr_of_meals < philos[i].data->nbr_of_meals)
 			return (0);
 	}
 	return (1);

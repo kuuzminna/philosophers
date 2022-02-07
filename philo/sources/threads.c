@@ -3,63 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 14:31:27 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/05 19:52:03 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 11:48:47 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-static void *life_cycle(void *data)
+static void	*life_cycle(void *data)
 {
-	t_philo *philosophers;
+	t_philo	*philos;
 
-	philosophers = (t_philo *)data;
-	if (philosophers->id % 2 == 0)
+	philos = (t_philo *)data;
+	if (philos->id % 2 == 0)
 		usleep(100);
-	philosophers->time_of_last_meal = current_time();
-	philosophers->start_time = current_time();
-	while (!philosophers->dead)
+	philos->time_of_last_meal = current_time();
+	philos->start_time = current_time();
+	while (!philos->dead)
 	{
-		take_forks(philosophers);
-		eat(philosophers);
-		sleep_and_think(philosophers);
+		take_forks(philos);
+		eat(philos);
+		sleep_and_think(philos);
 	}
 	return (NULL);
 }
 
-static int death_check(t_philo *philosophers, int i)
+static int	death_check(t_philo *philos, int i)
 {
-	if (current_time() - philosophers[i].time_of_last_meal > philosophers[i].limit_of_life)
+	if (current_time() - philos[i].time_of_last_meal
+		> philos[i].limit_of_life)
 	{
-		pthread_mutex_unlock(&philosophers[i].death_mutex);
-		message(&philosophers[i], " died");
+		pthread_mutex_unlock(&philos[i].death_mutex);
+		message(&philos[i], " died");
 		i = -1;
-		while (++i < philosophers->data->nbr_of_philo)
-			philosophers[i].dead = 1;
+		while (++i < philos->data->nbr_of_philo)
+			philos[i].dead = 1;
 		return (1);
 	}
-	if (philosophers[i].data->nbr_of_meals > 0 && check_meals(philosophers))
+	if (philos[i].data->nbr_of_meals > 0 && check_meals(philos))
 	{
-		pthread_mutex_unlock(&philosophers[i].death_mutex);
-		message(&philosophers[i], "Every philosopher ate at least");
+		pthread_mutex_unlock(&philos[i].death_mutex);
+		message(&philos[i], "Every philosopher ate at least");
 		i = -1;
-		while (++i < philosophers->data->nbr_of_philo)
-			philosophers[i].dead = 1;
+		while (++i < philos->data->nbr_of_philo)
+			philos[i].dead = 1;
 		return (1);
 	}
 	return (0);
 }
 
-static void *monitoring(void *philosophers)
+static void	*monitoring(void *philos)
 {
-	t_philo *philos;
-	int i;
-	int nbr_philos;
+	t_philo	*philos;
+	int		i;
+	int		nbr_philos;
 
-	philos = (t_philo *)philosophers;
+	philos = (t_philo *)philos;
 	nbr_philos = philos[0].data->nbr_of_philo;
 	while (1)
 	{
@@ -68,7 +69,7 @@ static void *monitoring(void *philosophers)
 		while (++i < nbr_philos)
 		{
 			pthread_mutex_lock(&philos[i].death_mutex);
-			if (death_check(philosophers, i))
+			if (death_check(philos, i))
 				return (NULL);
 			pthread_mutex_unlock(&philos[i].death_mutex);
 		}
@@ -76,12 +77,12 @@ static void *monitoring(void *philosophers)
 	return (NULL);
 }
 
-void run_threads(t_data *data)
+void	run_threads(t_data *data)
 {
-	pthread_t *threads;
-	pthread_t monitor;
-	int philos_nbr;
-	int i;
+	pthread_t	*threads;
+	pthread_t	monitor;
+	int			philos_nbr;
+	int			i;
 
 	philos_nbr = data->nbr_of_philo;
 	threads = (pthread_t *)malloc(sizeof(pthread_t) * philos_nbr);
@@ -90,8 +91,8 @@ void run_threads(t_data *data)
 	i = -1;
 	while (++i < philos_nbr)
 		pthread_create(&threads[i], NULL, life_cycle,
-					   (void *)&data->philosophers[i]);
-	pthread_create(&monitor, NULL, monitoring, (void *)data->philosophers);
+			(void *)&data->philos[i]);
+	pthread_create(&monitor, NULL, monitoring, (void *)data->philos);
 	pthread_join(monitor, NULL);
 	data->thrd = threads;
 }

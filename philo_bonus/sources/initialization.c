@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:15:15 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/06 14:15:09 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 11:43:20 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers_bonus.h"
 
-static void    init_data(int argc,char **argv,t_data *data)
+static void	init_data(int argc, char **argv, t_data *data)
 {
-    data->nbr_of_philo = ft_atoi(argv[1]);
-    data->time_to_die = ft_atoi(argv[2]);
-    data->time_to_eat = ft_atoi(argv[3]);
-    data->time_to_sleep = ft_atoi(argv[4]);
-    if  (argc == 6)
-        data->nbr_of_meals = ft_atoi(argv[5]);
-    else
-        data->nbr_of_meals = -1;
-    if(data->nbr_of_philo <=0 || data->time_to_die <= 0 || data->time_to_eat <= 0 || data->time_to_sleep <= 0 || (argc == 6 && data->nbr_of_meals <= 0))
-        write_error(ERR_VAL);
+	data->nbr_of_philo = ft_atoi(argv[1]);
+	data->time_to_die = ft_atoi(argv[2]);
+	data->time_to_eat = ft_atoi(argv[3]);
+	data->time_to_sleep = ft_atoi(argv[4]);
+	if (argc == 6)
+		data->nbr_of_meals = ft_atoi(argv[5]);
+	else
+		data->nbr_of_meals = -1;
+	if (data->nbr_of_philo <= 0 || data->time_to_die <= 0
+		|| data->time_to_eat <= 0 || data->time_to_sleep <= 0
+		|| (argc == 6 && data->nbr_of_meals <= 0))
+		write_error(ERR_VAL);
 	sem_unlink(SEM_FORKS);
 	sem_unlink(SEM_SIMULATION);
 	sem_unlink(SEM_WRITE);
@@ -35,13 +37,11 @@ static void    init_data(int argc,char **argv,t_data *data)
 	if (data->forks == SEM_FAILED || data->simulation == SEM_FAILED
 		|| data->death_sem == SEM_FAILED || data-> write_sem == SEM_FAILED)
 		write_error(ERR_SEM);
-
 }
 
-void init(int argc,char **argv,t_data *data)
+void	init(int argc, char **argv, t_data *data)
 {
-    if (argc < 5 || argc > 6)
-        write_error(ERR_ARG);
-    init_data(argc, argv, data);
-    // init_semaphores(data);
+	if (argc < 5 || argc > 6)
+		write_error(ERR_ARG);
+	init_data(argc, argv, data);
 }
