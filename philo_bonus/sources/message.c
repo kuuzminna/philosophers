@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:15:20 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/06 13:59:54 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/06 15:01:38 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	take_forks(t_data *data)
 	sem_wait(data->death_sem);
 }
 
-void	eating(t_data *data)
+void	eat(t_data *data)
 {
 	message(data, "is eating");
 	data->time_of_last_meal = current_time();

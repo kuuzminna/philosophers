@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:59:52 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/06 14:22:37 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/06 15:07:25 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define PHILOSOPHERS_H
 
 # include <stdlib.h>
+#include <unistd.h>
 # include <sys/time.h>
 # include <limits.h>
+# include <pthread.h>
 # include <semaphore.h>
 
 # define ERR_ARG	"\x1b[31mInvalid number of arguments\x1b[0m\n"
@@ -50,6 +52,8 @@ typedef struct s_data
 	sem_t			*death_sem;
 
 }					t_data;
+//cleaning_and_completion.c
+void	cleaning_and_completion(t_data *data);
 
 // initialization.c 
 void	init(int argc,char **argv,t_data *data);
@@ -67,6 +71,9 @@ void	message(t_data *data, char *action);
 void	sleep_and_think(t_data *data);
 void	take_forks(t_data *data);
 void	eat(t_data *data);
+
+//processes.c 
+void run_processes(t_data *data);
 
 //utils.c
 long	current_time(void);

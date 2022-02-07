@@ -6,71 +6,52 @@
 /*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 14:00:52 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/06 14:23:49 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/06 15:01:32 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers_bonus.h"
 
-static void *life_cycle(void *data)
+static void *life_cycle(t_data *data)
 {
-	t_philo *philosophers;
+	pthread_t	monitor;
 
-	philosophers = (t_philo *)data;
-	if (philosophers->id % 2 == 0)
+	if (data->id % 2 == 0)
 		usleep(100);
-	philosophers->time_of_last_meal = current_time();
-	philosophers->start_time = current_time();
-	while (!philosophers->dead)
+	data->time_of_last_meal = current_time();
+	data->start_time = current_time();
+	if (pthread_create(&monitor, NULL, &monitoring, data) != 0)
+		exit(1);
+	while (!data->dead)
 	{
-		take_forks(philosophers);
-		eat(philosophers);
-		sleep_and_think(philosophers);
+		take_forks(data);
+		eat(data);
+		if (data->dead)
+			break ;
+		sleep_and_think(data);
 	}
+	pthread_join(monitor, NULL);
 	return (NULL);
 }
 
-static int death_check(t_philo *philosophers, int i)
+static void *monitoring(void *datum)
 {
-	if (current_time() - philosophers[i].time_of_last_meal > philosophers[i].limit_of_life)
-	{
-		pthread_mutex_unlock(&philosophers[i].death_mutex);
-		message(&philosophers[i], " died");
-		i = -1;
-		while (++i < philosophers->data->nbr_of_philo)
-			philosophers[i].dead = 1;
-		return (1);
-	}
-	if (philosophers[i].data->nbr_of_meals > 0 && check_meals(philosophers))
-	{
-		pthread_mutex_unlock(&philosophers[i].death_mutex);
-		message(&philosophers[i], "Every philosopher ate at least");
-		i = -1;
-		while (++i < philosophers->data->nbr_of_philo)
-			philosophers[i].dead = 1;
-		return (1);
-	}
-	return (0);
-}
+	t_data	*data;
+	int		i;
+	int		nbr_philos;
 
-static void *monitoring(void *philosophers)
-{
-	t_philo *philos;
-	int i;
-	int nbr_philos;
-
-	philos = (t_philo *)philosophers;
-	nbr_philos = philos[0].data->nbr_of_philo;
+	data = (t_data *)datum;
+	nbr_philos = data->nbr_of_philo;
 	while (1)
 	{
 		usleep(100);
 		i = -1;
 		while (++i < nbr_philos)
 		{
-			pthread_mutex_lock(&philos[i].death_mutex);
-			if (death_check(philosophers, i))
+			sem_wait(data->death_sem);
+			if (check_meals(data))
 				return (NULL);
-			pthread_mutex_unlock(&philos[i].death_mutex);
+			sem_post(data->death_sem);
 		}
 	}
 	return (NULL);
