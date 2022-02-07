@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:19:31 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 11:49:31 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 12:05:01 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static void	init_data(int argc, char **argv, t_data *data)
 		|| data->time_to_eat <= 0 || data->time_to_sleep <= 0
 		|| (argc == 6 && data->nbr_of_meals <= 0))
 		write_error(ERR_VAL);
-	data->forks = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) *(data->nbr_of_philo));
+	data->forks = (pthread_mutex_t *)malloc
+		(sizeof(pthread_mutex_t) *(data->nbr_of_philo));
 	if (!data->forks)
 		write_error(ERR_MEMORY);
 	while (i < data->nbr_of_philo)
