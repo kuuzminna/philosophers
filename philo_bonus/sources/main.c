@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:59:55 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 11:29:50 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 15:47:52 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,13 @@ void	write_error(char *str)
 
 int	main(int argc, char **argv)
 {
-	t_data	*data;
+	t_data	data;
 
-	data = (t_data *)malloc(sizeof(t_data));
-	if (!data)
-		write_error(ERR_MEMORY);
-	init(argc, argv, data);
-	run_processes(data);
-	sem_wait(data->simulation);
-	cleaning_and_completion(data);
-	if (data->nbr_of_meals > 0)
-		printf("Every philosopher ate at least %d times\n", data->nbr_of_meals);
+	init(argc, argv, &data);
+	run_processes(&data);
+	sem_wait(data.simulation);
+	cleaning_and_completion(&data);
+	if (data.nbr_of_meals > 0)
+		printf("Every philosopher ate at least %d times\n", data.nbr_of_meals);
 	return (0);
 }

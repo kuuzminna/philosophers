@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:15:15 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 11:43:20 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 13:42:34 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,7 @@ void	init(int argc, char **argv, t_data *data)
 	if (argc < 5 || argc > 6)
 		write_error(ERR_ARG);
 	init_data(argc, argv, data);
+	data->start_time = current_time();
+	data->meals = 0;
+	data->dead = 0;
 }

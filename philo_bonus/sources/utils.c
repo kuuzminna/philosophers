@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:15:23 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 11:30:17 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 14:38:15 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	check_meals(t_data *data)
 		sem_post(data->simulation);
 		data->dead = 1;
 		sem_post(data->death_sem);
-		exit(0);
+		exit(EXIT_SUCCESS);
 	}
 	if (data->nbr_of_meals > 0)
 	{

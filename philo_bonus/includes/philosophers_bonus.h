@@ -3,28 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers_bonus.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:59:52 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/06 15:07:25 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 13:15:47 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILOSOPHERS_H
-# define PHILOSOPHERS_H
+#ifndef PHILOSOPHERS_BONUS_H
+# define PHILOSOPHERS_BONUS_H
 
 # include <stdlib.h>
-#include <unistd.h>
+# include <stdio.h>
+# include <signal.h>
+# include <unistd.h>
 # include <sys/time.h>
 # include <limits.h>
 # include <pthread.h>
 # include <semaphore.h>
 
-# define ERR_ARG	"\x1b[31mInvalid number of arguments\x1b[0m\n"
-# define ERR_VAL 	"\x1b[31mTinvalid argument values\x1b[0m\n"
-# define ERR_MEMORY	"\x1b[31mMemory was not allocated\x1b[0m\n"
-# define ERR_SEM	"\x1b[31mSemaphore's error\x1b[0m\n"
-# define ERR_PID	"\x1b[31mProcess error\x1b[0m\n"
+# define ERR_ARG		"\x1b[31mInvalid number of arguments\x1b[0m\n"
+# define ERR_VAL 		"\x1b[31mTinvalid argument values\x1b[0m\n"
+# define ERR_MEMORY		"\x1b[31mMemory was not allocated\x1b[0m\n"
+# define ERR_SEM		"\x1b[31mSemaphore's error\x1b[0m\n"
+# define ERR_PID		"\x1b[31mProcess error\x1b[0m\n"
+# define ERROR_THREAD	"\x1b[31mTread error\x1b[0m\n"
 
 # define SEM_FORKS		"/forks"
 # define SEM_SIMULATION	"/simulation"
@@ -52,15 +55,16 @@ typedef struct s_data
 	sem_t			*death_sem;
 
 }					t_data;
+
 //cleaning_and_completion.c
 void	cleaning_and_completion(t_data *data);
 
 // initialization.c 
-void	init(int argc,char **argv,t_data *data);
+void	init(int argc, char **argv, t_data *data);
 
 // libft.c
-int     ft_atoi(const char *str);
-void    ft_putstr_fd(char *str, int fd);
+int		ft_atoi(const char *str);
+void	ft_putstr_fd(char *str, int fd);
 int		ft_strncmp(const char *s1, const char *s2, long n);
 
 //main.c
@@ -73,7 +77,7 @@ void	take_forks(t_data *data);
 void	eat(t_data *data);
 
 //processes.c 
-void run_processes(t_data *data);
+void	run_processes(t_data *data);
 
 //utils.c
 long	current_time(void);
