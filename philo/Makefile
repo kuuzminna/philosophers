@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+         #
+#    By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/26 22:05:02 by ggrapefr          #+#    #+#              #
-#    Updated: 2022/01/26 22:13:31 by ggrapefr         ###   ########.fr        #
+#    Updated: 2022/02/07 12:36:49 by ggrapefr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ fclean : clean
 
 re : fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re norm
 
 norm:
 	@norminette -R CheckForbiddenSourceHeader

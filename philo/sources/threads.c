@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 14:31:27 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 11:48:47 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/07 12:35:11 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ static int	death_check(t_philo *philos, int i)
 	return (0);
 }
 
-static void	*monitoring(void *philos)
+static void	*monitoring(void *philosophers)
 {
 	t_philo	*philos;
 	int		i;
 	int		nbr_philos;
 
-	philos = (t_philo *)philos;
+	philos = (t_philo *)philosophers;
 	nbr_philos = philos[0].data->nbr_of_philo;
 	while (1)
 	{
