@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:59:55 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 15:47:52 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/08 13:38:27 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,5 @@ int	main(int argc, char **argv)
 	run_processes(&data);
 	sem_wait(data.simulation);
 	cleaning_and_completion(&data);
-	if (data.nbr_of_meals > 0)
-		printf("Every philosopher ate at least %d times\n", data.nbr_of_meals);
 	return (0);
 }

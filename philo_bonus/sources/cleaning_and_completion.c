@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:15:12 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 15:03:50 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/08 13:41:28 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 void	cleaning_and_completion(t_data *data)
 {
 	int	i;
+	int	var;
 
+	waitpid(-1, &var, 0);
 	i = 0;
-	while (i < data->nbr_of_philo)
-		kill(data->pids[i++], SIGKILL);
+	if (var == 0)
+	{
+		while (i < data->nbr_of_philo)
+			kill(data->pids[i++], SIGKILL);
+	}
 	free(data->pids);
 	sem_close(data->simulation);
 	sem_close(data->death_sem);

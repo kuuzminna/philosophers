@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:59:52 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 13:15:47 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/08 11:53:53 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <limits.h>
 # include <pthread.h>
 # include <semaphore.h>
+# include <fcntl.h>
 
 # define ERR_ARG		"\x1b[31mInvalid number of arguments\x1b[0m\n"
 # define ERR_VAL 		"\x1b[31mTinvalid argument values\x1b[0m\n"
