@@ -6,13 +6,13 @@
 /*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 14:45:05 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/08 18:50:36 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:33:57 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-//waiting for threads, clearing allocated memory and destroying mutexes
+// waiting for threads, clearing allocated memory and destroying mutexes
 void	cleaning_and_completion(t_data *data, t_philo *philos)
 {
 	int	i;

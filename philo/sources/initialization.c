@@ -6,7 +6,7 @@
 /*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:19:31 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/08 18:50:42 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:34:03 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	init_data(int argc, char **argv, t_data *data)
 		write_error(ERR_MEMORY);
 }
 
-//if philos is last his first fork is fork with id 1
+// if philos is last his first fork is fork with id 1
 static void	fork_distribution(t_philo	*philos, t_data *data)
 {
 	if (philos->id == data->nbr_of_philo)
@@ -58,7 +58,7 @@ static void	fork_distribution(t_philo	*philos, t_data *data)
 	}
 }
 
-//initializing the thread structure
+// initializing the thread structure
 static void	init_philosophers(t_data *data)
 {
 	t_philo	*philos;

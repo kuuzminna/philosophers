@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:59:42 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 16:21:37 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:33:12 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_data
 	t_philo			*philos;
 }					t_data;
 
-//cleaning_and_completion.c
+// cleaning_and_completion.c
 void	cleaning_and_completion(t_data *data, t_philo *philos);
 
 // initialization.c 
@@ -67,19 +67,19 @@ int		ft_atoi(const char *str);
 void	ft_putstr_fd(char *str, int fd);
 int		ft_strncmp(const char *s1, const char *s2, long n);
 
-//main.c
+// main.c
 void	write_error(char *str);
 
-//message.c
+// message.c
 void	message(t_philo *philo, char *action);
 void	sleep_and_think(t_philo *philos);
 void	take_forks(t_philo *philos);
 void	eat(t_philo *philos);
 
-//threads.c
+// threads.c
 void	run_threads(t_data *data);
 
-//utils.c
+// utils.c
 long	current_time(void);
 void	ft_usleep(int ms);
 int		check_meals(t_philo *philos);

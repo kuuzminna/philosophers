@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:59:46 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 16:22:44 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:34:14 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-//error output
+// error output
 void	write_error(char *str)
 {
 	ft_putstr_fd(str, 2);
