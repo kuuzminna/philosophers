@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers_bonus.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:59:52 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/08 11:53:53 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:32:52 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_data
 
 }					t_data;
 
-//cleaning_and_completion.c
+// cleaning_and_completion.c
 void	cleaning_and_completion(t_data *data);
 
 // initialization.c 
@@ -68,19 +68,19 @@ int		ft_atoi(const char *str);
 void	ft_putstr_fd(char *str, int fd);
 int		ft_strncmp(const char *s1, const char *s2, long n);
 
-//main.c
+// main.c
 void	write_error(char *str);
 
-//message.c
+// message.c
 void	message(t_data *data, char *action);
 void	sleep_and_think(t_data *data);
 void	take_forks(t_data *data);
 void	eat(t_data *data);
 
-//processes.c 
+// processes.c 
 void	run_processes(t_data *data);
 
-//utils.c
+// utils.c
 long	current_time(void);
 void	ft_usleep(int ms);
 int		check_meals(t_data *data);

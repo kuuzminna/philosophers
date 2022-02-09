@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:15:15 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 13:42:34 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:38:07 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers_bonus.h"
 
+// initializing the data structure
 static void	init_data(int argc, char **argv, t_data *data)
 {
 	data->nbr_of_philo = ft_atoi(argv[1]);

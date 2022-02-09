@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cleaning_and_completion.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:15:12 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/08 13:41:28 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:37:47 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers_bonus.h"
 
+// if one of their processes has ended, then we kill all child processes,
+// clean up the allocated memory and close semaphores
 void	cleaning_and_completion(t_data *data)
 {
 	int	i;
