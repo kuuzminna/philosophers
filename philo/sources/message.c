@@ -6,12 +6,13 @@
 /*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 10:11:59 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/07 11:48:47 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/10 20:27:09 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+// message output
 void	message(t_philo *philo, char *action)
 {
 	int	timestamp;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 21:59:46 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/09 16:34:14 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/10 20:27:01 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	write_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
+// entry point to the program
 int	main(int argc, char **argv)
 {
 	t_data	*data;

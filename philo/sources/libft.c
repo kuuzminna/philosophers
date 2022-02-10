@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggrapefr <ggrapefr@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:16:57 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/09 16:34:07 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/10 20:26:44 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-// converting a string into a numeric form, processing one sign of a number and the number itself, no more!!
+// converting a string into a numeric form, processing one sign of
+//  a number and the number itself, no more!!
 int	ft_atoi(const char *str)
 {
 	int			i;
@@ -40,6 +41,7 @@ int	ft_atoi(const char *str)
 	return (nb * neg);
 }
 
+// output the string to the given file descriptor
 void	ft_putstr_fd(char *str, int fd)
 {
 	int	i;
@@ -50,6 +52,7 @@ void	ft_putstr_fd(char *str, int fd)
 			write(fd, &str[i++], 1);
 }
 
+// comparison of no more than the first n elements of two rows
 int	ft_strncmp(const char *s1, const char *s2, long n)
 {
 	unsigned char	*str1;
