@@ -6,14 +6,14 @@
 /*   By: ggrapefr <ggrapefr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:13:31 by ggrapefr          #+#    #+#             */
-/*   Updated: 2022/02/10 20:27:51 by ggrapefr         ###   ########.fr       */
+/*   Updated: 2022/02/10 20:33:15 by ggrapefr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers_bonus.h"
 
 // converting a string into a numeric form, processing one sign of
-//  a number and the number itself, no more!!
+// a number and the number itself, no more!!
 int	ft_atoi(const char *str)
 {
 	int			i;
